@@ -25,6 +25,6 @@ jobs:
     uses: ewanek1/slack-deploy-playground/.github/workflows/cli-runner.yml@main
     with:
       command: ${{ github.event.inputs.command }}
-      verbose: ${{ github.event.inputs.verbose }}
+      verbose: ${{ github.event.inputs.verbose && 'true' || 'false' }}
       cli_version: ${{ github.event.inputs.cli_version }}
       app_id: ${{ github.event.inputs.app_id }}
