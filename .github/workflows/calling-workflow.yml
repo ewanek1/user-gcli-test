@@ -28,7 +28,6 @@ jobs:
         uses: ewanek1/slack-deploy-playground/.github/workflows/cli-runner.yml@main
         with:
           command: ${{ github.event.inputs.command }}
-          verbose: ${{ github.event.inputs.verbose || github.run_attempt > 1 }}
+          verbose: ${{ github.event.inputs.verbose }}
           cli_version: ${{ github.event.inputs.cli_version }}
           app_id: ${{ github.event.inputs.app_id }}
-        secrets: inherit
