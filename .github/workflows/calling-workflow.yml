@@ -30,8 +30,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      - name: Run Slack CLI Command
-        uses: slackapi/slack-cli-action@v1
+      - name: Slack CLI Command Runner
+        uses: ewanek1/slack-deploy-playground/.github/workflows/cli-runner.yml@main
         with:
           command: ${{ github.event.inputs.command }}
           verbose: ${{ github.event.inputs.verbose || github.run_attempt > 1 }}
