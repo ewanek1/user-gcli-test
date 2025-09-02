@@ -38,3 +38,4 @@ jobs:
           cli_version: ${{ github.event.inputs.cli_version }}
           app_id: ${{ github.event.inputs.app_id }}
         secrets: inherit
+        #hey
