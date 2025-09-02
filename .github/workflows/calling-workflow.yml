@@ -4,21 +4,24 @@ on:
     inputs:
       command:
         description: 'Slack CLI command to run'
-        required: true
         type: string
+        default: ""
+        required: true
       verbose:
         description: 'Verbose flag'
         type: boolean
         default: false
+        required: false
       cli_version:
         description: 'CLI version'
-        required: false
         type: string
         default: "latest"
+        required: false
       app_id: 
         description: "App ID"
-        required: false
         type: string
+        default: ""
+        required: false
 
 jobs:
   run-slack-cli:
