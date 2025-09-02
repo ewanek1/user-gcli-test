@@ -37,5 +37,6 @@ jobs:
           verbose: ${{ github.event.inputs.verbose || github.run_attempt > 1 }}
           cli_version: ${{ github.event.inputs.cli_version }}
           app_id: ${{ github.event.inputs.app_id }}
-        secrets: inherit
-        #hey
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_APP_TOKEN: ${{ secrets.SLACK_APP_TOKEN }}
