@@ -22,12 +22,33 @@ on:
         type: string
         default: ""
         required: false
+name: Run Slack CLI Command
+
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: 'Slack CLI command to run'
+        required: true
+        default: 'version'
+      verbose:
+        description: 'Enable verbose output'
+        type: boolean
+        default: false
+      cli_version:
+        description: 'Slack CLI version'
+        required: false
+        default: 'latest'
+      app_id:
+        description: 'Slack App ID'
+        required: false
 
 jobs:
   run-slack-cli:
-    uses: ewanek1/slack-deploy-playground/.github/workflows/cli-runner.yml@main
+    uses: your-username/slack-deploy-playground/.github/workflows/cli-runner.yml@main
     with:
       command: ${{ github.event.inputs.command }}
-      verbose: ${{ github.run_attempt > 1 }}
+      verbose: ${{ github.event.inputs.verbose }}
       cli_version: ${{ github.event.inputs.cli_version }}
       app_id: ${{ github.event.inputs.app_id }}
+    secrets: inherit
