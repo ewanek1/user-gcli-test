@@ -22,10 +22,10 @@ on:
         type: string
         default: ""
         required: false
-        
+
 jobs:
   run-slack-cli:
-    uses: your-username/slack-deploy-playground/.github/workflows/cli-runner.yml@main
+    uses: ewanek1/slack-deploy-playground/.github/workflows/cli-runner.yml@main
     with:
       command: ${{ github.event.inputs.command }}
       verbose: ${{ github.event.inputs.verbose }}
