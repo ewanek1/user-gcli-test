@@ -24,10 +24,17 @@ on:
         required: false
 
 jobs:
-  run-slack-cli:
-    uses: ewanek1/slack-deploy-playground/.github/workflows/cli-runner.yml@main
-    with:
-      command: ${{ github.event.inputs.command }}
-      verbose: ${{ github.run_attempt > 1 }}
-      cli_version: ${{ github.event.inputs.cli_version }}
-      app_id: ${{ github.event.inputs.app_id }}
+  run-slack-cli:  
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Run Slack CLI Command
+        uses: slackapi/slack-cli-action@v1
+        with:
+          command: ${{ github.event.inputs.command }}
+          verbose: ${{ github.event.inputs.verbose || github.run_attempt > 1 }}
+          cli_version: ${{ github.event.inputs.cli_version }}
+          app_id: ${{ github.event.inputs.app_id }}
+        secrets: inherit
