@@ -38,5 +38,5 @@ jobs:
           cli_version: ${{ github.event.inputs.cli_version }}
           app_id: ${{ github.event.inputs.app_id }}
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-          SLACK_APP_TOKEN: ${{ secrets.SLACK_APP_TOKEN }}
+          SLACK_SERVICE_TOKEN: ${{ secrets.SLACK_SERVICE_TOKEN }}
+
